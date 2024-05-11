@@ -111,7 +111,7 @@ int main(int _argc, char **_argv)
         mhs[std_count - 1].dorm == NULL ? "unassigned" : mhs[std_count - 1].dorm->name);
         
     free(mhs);
-    free(drm);
+    free(drm); 
 
     return 0;
 }
