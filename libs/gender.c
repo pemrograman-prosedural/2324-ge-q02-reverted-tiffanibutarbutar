@@ -1,7 +1,13 @@
 #include "gender.h"
 
-/**
- * @brief Define the complete function definition here. Be sure to enlist the prototype of each function
- * defined here in the corresponding header file.
- *
- */
+const char* get_gender_string(enum gender_t gender)
+{
+    switch (gender) {
+        case GENDER_FEMALE: 
+            return "Female";
+        case GENDER_MALE:
+            return "Male";
+        default:
+            return "Invalid";
+    }
+}
