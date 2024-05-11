@@ -2,14 +2,14 @@
 // 12S23024 - Eska Natasia Silaen
 
 #include <stdio.h>
-#include <string.h> 
+#include <string.h>
 #include <stdlib.h>
 #include "./libs/dorm.h" 
 #include "./libs/student.h"
 
 int main(int _argc, char **_argv)
 {
-    char input[100];
+    char input[100]; 
     int dorm_count = 0;
     int dorm_size = 0;
     struct dorm_t *drm = malloc(dorm_size *sizeof(struct dorm_t));
@@ -41,8 +41,11 @@ int main(int _argc, char **_argv)
         {
             dorm_size++;
             drm = realloc(drm, dorm_size *sizeof(struct dorm_t));
-            drm[dorm_count] = create_dorm(input);
-            dorm_count++;      
+            char *name = strtok(NULL, "#");
+            unsigned short capacity = atoi(strtok(NULL, "#")); // convert string to int
+            enum gender_t gender = atoi(strtok(NULL, "#")); // convert string to enum
+            drm[dorm_count] = create_dorm(name, capacity, gender);
+            dorm_count++;     
         }
 
         else if (strcmp(token, "dorm-print-all") == 0)
